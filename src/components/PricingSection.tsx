@@ -7,8 +7,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Starter",
-      price: "2,400",
-      duration: "one-time",
+      price: "3,300",
+      duration: "total package",
       description: "Perfect for small businesses getting started",
       icon: Zap,
       popular: false,
@@ -16,13 +16,13 @@ const PricingSection = () => {
         "1x Landing page + 1 blog",
         "3 months SEO optimization",
         "$1,500 SGD website development",
-        "$900 SGD SEO package",
+        "$600 SGD/month SEO (3 months)",
         "Basic analytics & reporting"
       ]
     },
     {
       name: "Growth",
-      price: "2,600",
+      price: "4,500",
       duration: "starting from",
       description: "Starter + targeted advertising",
       icon: Crown,
@@ -37,14 +37,14 @@ const PricingSection = () => {
     },
     {
       name: "Scale",
-      price: "2,800",
+      price: "10,200",
       duration: "starting from",
       description: "Complete digital marketing solution",
       icon: Building,
       popular: false,
       features: [
         "Multi-page site with blog",
-        "6 + 6 months offered SEO",
+        "12 months SEO ($600/month)",
         "Both SEM + SMA campaigns",
         "15% ad spend management fee",
         "Dedicated account manager"
