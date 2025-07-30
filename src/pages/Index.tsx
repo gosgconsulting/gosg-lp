@@ -5,7 +5,6 @@ import ProblemSection from '../components/ProblemSection';
 import SolutionOverview from '../components/SolutionOverview';
 import FeaturesSection from '../components/FeaturesSection';
 import TokenSystem from '../components/TokenSystem';
-import Roadmap from '../components/Roadmap';
 import SocialProof from '../components/SocialProof';
 import PricingSection from '../components/PricingSection';
 import FAQ from '../components/FAQ';
@@ -19,7 +18,6 @@ const Index = () => {
       <SolutionOverview />
       <FeaturesSection />
       <TokenSystem />
-      <Roadmap />
       <SocialProof />
       <PricingSection />
       <FAQ />
