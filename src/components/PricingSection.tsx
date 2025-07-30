@@ -7,44 +7,47 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Starter",
-      price: 49,
-      tokens: "500 tokens",
+      price: "2,400",
+      duration: "one-time",
+      description: "Perfect for small businesses getting started",
       icon: Zap,
       popular: false,
       features: [
-        "500 tokens included",
-        "All current features",
-        "Email support",
-        "Community access",
-        "Basic analytics"
+        "1x Landing page + 1 blog",
+        "3 months SEO optimization",
+        "$1,500 SGD website development",
+        "$900 SGD SEO package",
+        "Basic analytics & reporting"
       ]
     },
     {
       name: "Growth",
-      price: 149,
-      tokens: "2,000 tokens",
+      price: "2,600",
+      duration: "starting from",
+      description: "Starter + targeted advertising",
       icon: Crown,
       popular: true,
       features: [
-        "2,000 tokens included",
-        "Priority support",
-        "Advanced analytics",
-        "Custom integrations",
-        "Team collaboration"
+        "Everything in Starter",
+        "6 months SEM OR SMA",
+        "15% ad spend management fee",
+        "$200 SGD minimum monthly fee",
+        "Enhanced performance tracking"
       ]
     },
     {
       name: "Scale",
-      price: 399,
-      tokens: "6,000 tokens",
+      price: "2,800",
+      duration: "starting from",
+      description: "Complete digital marketing solution",
       icon: Building,
       popular: false,
       features: [
-        "6,000 tokens included",
-        "Dedicated success manager",
-        "White-label options",
-        "Custom development",
-        "SLA guarantee"
+        "Multi-page site with blog",
+        "6 + 6 months offered SEO",
+        "Both SEM + SMA campaigns",
+        "15% ad spend management fee",
+        "Dedicated account manager"
       ]
     }
   ];
@@ -53,11 +56,11 @@ const PricingSection = () => {
     <section className="py-20 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Simple, Transparent Token Pricing
+          Digital Marketing Packages
         </h2>
         
         <p className="text-xl text-gray-300 mb-12">
-          Choose the plan that scales with your automation needs
+          Choose the package that fits your business goals
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -76,11 +79,11 @@ const PricingSection = () => {
               </div>
               
               <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-              <p className="text-gray-400 mb-6">{plan.tokens}</p>
+              <p className="text-gray-400 mb-6">{plan.description}</p>
               
               <div className="mb-8">
                 <span className="text-4xl font-bold text-white">${plan.price}</span>
-                <span className="text-gray-400">/month</span>
+                <span className="text-gray-400"> SGD {plan.duration}</span>
               </div>
               
               <ul className="space-y-4 mb-8">
