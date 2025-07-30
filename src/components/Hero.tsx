@@ -20,7 +20,7 @@ const Hero = () => {
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
               <Sparkles className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
             </div>
-            <span className="text-2xl lg:text-3xl font-bold text-white">Sparti</span>
+            <span className="text-2xl lg:text-3xl font-bold text-white">GO SG</span>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ const Hero = () => {
 
         {/* Subheadline */}
         <p className="text-lg lg:text-body-large text-gray-300 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed">
-          Sparti combines SEO automation, data scraping, and lead generation into one powerful platform. 
+          GO SG combines SEO automation, data scraping, and lead generation into one powerful platform. 
           Use your tokens for any task, scale as you grow.
         </p>
 

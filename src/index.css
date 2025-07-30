@@ -6,10 +6,10 @@
 
 @layer base {
   :root {
-    /* Sparti Brand Colors */
-    --sparti-primary: 267 45% 56%; /* #8B5FBF */
-    --sparti-primary-dark: 259 59% 58%; /* #6B46C1 */
-    --sparti-primary-light: 264 85% 78%; /* #A78BFA */
+    /* GO SG Brand Colors */
+    --gosg-primary: 185 65% 45%; /* #1E8B8B - Teal */
+    --gosg-primary-dark: 185 75% 35%; /* #156B6B - Dark Teal */
+    --gosg-primary-light: 185 55% 65%; /* #4FB3B3 - Light Teal */
     
     /* Secondary Colors */
     --success-green: 158 64% 52%; /* #10B981 */
@@ -37,10 +37,10 @@
     --card-foreground: var(--text-primary);
     --popover: var(--bg-primary);
     --popover-foreground: var(--text-primary);
-    --primary: var(--sparti-primary);
+    --primary: var(--gosg-primary);
     --primary-foreground: var(--text-inverse);
     --secondary: var(--bg-secondary);
-    --secondary-foreground: var(--sparti-primary);
+    --secondary-foreground: var(--gosg-primary);
     --muted: var(--bg-secondary);
     --muted-foreground: var(--text-muted);
     --accent: var(--bg-secondary);
@@ -49,7 +49,7 @@
     --destructive-foreground: var(--text-inverse);
     --border: var(--border-default);
     --input: var(--border-default);
-    --ring: var(--sparti-primary);
+    --ring: var(--gosg-primary);
     
     /* Typography Scale - Mobile First */
     --font-size-h1-mobile: 3rem; /* 48px */
@@ -154,13 +154,13 @@
   
   .btn-primary {
     @apply bg-gradient-to-r from-primary to-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5;
-    background: linear-gradient(135deg, hsl(var(--sparti-primary)) 0%, hsl(var(--sparti-primary-dark)) 100%);
-    box-shadow: 0 4px 14px hsl(var(--sparti-primary) / 0.25);
+    background: linear-gradient(135deg, hsl(var(--gosg-primary)) 0%, hsl(var(--gosg-primary-dark)) 100%);
+    box-shadow: 0 4px 14px hsl(var(--gosg-primary) / 0.25);
     padding: 16px 32px;
   }
   
   .btn-primary:hover {
-    box-shadow: 0 6px 20px hsl(var(--sparti-primary) / 0.4);
+    box-shadow: 0 6px 20px hsl(var(--gosg-primary) / 0.4);
   }
   
   .btn-secondary {
