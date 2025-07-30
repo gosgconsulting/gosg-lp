@@ -1,21 +1,21 @@
 
 import React from 'react';
-import { XCircle, DollarSign, Zap, Users, Settings } from 'lucide-react';
+import { XCircle, TrendingDown, Clock, Target, AlertCircle } from 'lucide-react';
 
 const ProblemSection = () => {
   const problems = [
-    { icon: DollarSign, text: "Separate SEO tools" },
-    { icon: Zap, text: "Multiple scraping platforms" },
-    { icon: Users, text: "Different lead gen systems" },
-    { icon: Settings, text: "Complex integrations" },
-    { icon: DollarSign, text: "Unused subscriptions" }
+    { icon: TrendingDown, text: "Declining website traffic" },
+    { icon: Clock, text: "Time-consuming marketing tasks" },
+    { icon: Target, text: "Poor conversion rates" },
+    { icon: AlertCircle, text: "Limited marketing expertise" },
+    { icon: TrendingDown, text: "Low return on ad spend" }
   ];
 
   return (
     <section className="py-12 lg:py-20 relative">
       <div className="container-custom text-center">
         <h2 className="text-h2 text-white mb-6 lg:mb-8">
-          Tired of <span className="bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent font-bold">Tool Sprawl</span>?
+          Struggling with <span className="bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent font-bold">Marketing Challenges</span>?
         </h2>
         
         <p className="text-body-large text-gray-300 mb-8 lg:mb-12 max-w-3xl mx-auto">
@@ -36,10 +36,10 @@ const ProblemSection = () => {
 
         <div className="bg-gradient-to-r from-primary/30 to-primary/20 p-6 lg:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20">
           <h3 className="text-xl lg:text-2xl font-bold text-white mb-4">
-            What if one platform could do it all?
+            What if one agency could solve it all?
           </h3>
           <p className="text-white/80 text-base lg:text-lg">
-            Stop paying for scattered tools. Start automating with unified power.
+            Stop struggling with ineffective marketing. Start growing with proven strategies.
           </p>
         </div>
       </div>

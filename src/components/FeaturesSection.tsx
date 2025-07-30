@@ -1,120 +1,119 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Search, Database, ArrowRight } from 'lucide-react';
+import { Globe, Search, MousePointer, Share2, BarChart, ArrowRight } from 'lucide-react';
 
 const FeaturesSection = () => {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Feature 1: SEO Automation */}
+        {/* Feature 1: Website Design */}
         <div className="mb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center mr-4">
-                  <Search className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center mr-4">
+                  <Globe className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-white">Dominate Search Results on Autopilot</h3>
+                <h3 className="text-3xl font-bold text-white">Beautiful Websites That Convert</h3>
               </div>
               
               <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                Discover winning keywords, scrape competitor content, generate SEO-optimized articles, and publish directly to your CMS. 
-                Our AI humanization ensures content passes all detection tools while ranking on page 1.
+                Upgrade and enhance your business through top-notch website design that perfectly represents 
+                your brand and converts visitors into customers. Mobile-responsive and user-friendly.
               </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  "Keyword research to published content in one workflow",
-                  "Google Search & competitor analysis",
-                  "AI humanization that bypasses detection",
-                  "Direct CMS integration",
-                  "Automated publishing schedules"
+                  "Mobile-responsive design for all devices",
+                  "User-friendly interface and navigation",
+                  "Brand-consistent visual identity",
+                  "Conversion-optimized layouts",
+                  "Fast loading and SEO-friendly"
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                     {benefit}
                   </li>
                 ))}
               </ul>
 
-              <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl">
-                Start SEO Automation
+              <Button className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-6 py-3 rounded-xl">
+                Start Your Website
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
             
-            <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 p-8 rounded-2xl border border-green-500/20">
+            <div className="bg-gradient-to-br from-primary/20 to-primary/10 p-8 rounded-2xl border border-primary/20">
               <div className="bg-gray-900/50 p-4 rounded-lg mb-4">
-                <p className="text-green-400 text-sm font-mono">$ sparti seo --target="best project management tools"</p>
-                <p className="text-gray-400 text-sm mt-2">✓ Found 247 keyword opportunities</p>
-                <p className="text-gray-400 text-sm">✓ Analyzed 15 competitor articles</p>
-                <p className="text-gray-400 text-sm">✓ Generated 2,500-word optimized article</p>
-                <p className="text-gray-400 text-sm">✓ Humanized content (98% human score)</p>
-                <p className="text-gray-400 text-sm">✓ Published to WordPress</p>
+                <p className="text-primary text-sm font-mono">✓ Modern, professional design</p>
+                <p className="text-gray-400 text-sm mt-2">✓ Fully responsive across devices</p>
+                <p className="text-gray-400 text-sm">✓ Optimized for conversions</p>
+                <p className="text-gray-400 text-sm">✓ SEO-friendly structure</p>
+                <p className="text-gray-400 text-sm">✓ Fast loading performance</p>
+                <p className="text-gray-400 text-sm">✓ Brand-consistent styling</p>
               </div>
-              <p className="text-gray-300 text-sm">Complete SEO workflow in under 10 minutes</p>
+              <p className="text-gray-300 text-sm">Beautiful websites that drive business results</p>
             </div>
           </div>
         </div>
 
-        {/* Feature 2: Lead Generation */}
+        {/* Feature 2: SEO & Digital Marketing */}
         <div>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="lg:order-2">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                  <Database className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center mr-4">
+                  <Search className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-white">Find & Convert Leads While You Sleep</h3>
+                <h3 className="text-3xl font-bold text-white">Dominate Search Results & Social Media</h3>
               </div>
               
               <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                Extract qualified leads from Google Maps, LinkedIn, and search results with full contact details. 
-                Launch personalized outreach across email, LinkedIn, and WhatsApp automatically.
+                Boost your search engine ranking and social media presence with our comprehensive 
+                digital marketing strategies. From SEO to paid ads and social media management.
               </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  "Google Maps, LinkedIn, and web scraping",
-                  "Email, phone, and social profile extraction",
-                  "Multi-channel campaign automation",
-                  "Personalized message crafting",
-                  "Lead scoring and prioritization"
+                  "Humanised SEO that ranks higher",
+                  "Targeted paid advertising campaigns",
+                  "Engaging social media content",
+                  "Analytics and performance tracking",
+                  "Data-driven strategy optimization"
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                     {benefit}
                   </li>
                 ))}
               </ul>
 
-              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl">
-                Generate Leads Now
+              <Button className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-6 py-3 rounded-xl">
+                Boost Your Visibility
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
             
-            <div className="lg:order-1 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-8 rounded-2xl border border-purple-500/20">
+            <div className="lg:order-1 bg-gradient-to-br from-primary/20 to-primary/10 p-8 rounded-2xl border border-primary/20">
               <div className="space-y-3">
                 <div className="bg-gray-900/50 p-3 rounded-lg">
-                  <p className="text-white font-medium">TechStart Inc.</p>
-                  <p className="text-gray-400 text-sm">john@techstart.com • LinkedIn • +1-555-0123</p>
-                  <p className="text-purple-400 text-sm">Score: 94/100</p>
+                  <p className="text-white font-medium">SEO Results</p>
+                  <p className="text-gray-400 text-sm">Page 1 rankings • 300% traffic increase</p>
+                  <p className="text-primary text-sm">ROI: 8x marketing investment</p>
                 </div>
                 <div className="bg-gray-900/50 p-3 rounded-lg">
-                  <p className="text-white font-medium">Innovation Labs</p>
-                  <p className="text-gray-400 text-sm">sarah@innovlabs.io • LinkedIn • +1-555-0124</p>
-                  <p className="text-purple-400 text-sm">Score: 89/100</p>
+                  <p className="text-white font-medium">Paid Advertising</p>
+                  <p className="text-gray-400 text-sm">Google & Facebook Ads • Targeted campaigns</p>
+                  <p className="text-primary text-sm">Conversion rate: 15.2%</p>
                 </div>
                 <div className="bg-gray-900/50 p-3 rounded-lg">
-                  <p className="text-white font-medium">Growth Co.</p>
-                  <p className="text-gray-400 text-sm">mike@growth.co • LinkedIn • +1-555-0125</p>
-                  <p className="text-purple-400 text-sm">Score: 87/100</p>
+                  <p className="text-white font-medium">Social Media</p>
+                  <p className="text-gray-400 text-sm">Engaging content • Community growth</p>
+                  <p className="text-primary text-sm">Engagement: +250%</p>
                 </div>
               </div>
-              <p className="text-gray-300 text-sm mt-4">1,247 qualified leads found in your area</p>
+              <p className="text-gray-300 text-sm mt-4">Comprehensive digital marketing success</p>
             </div>
           </div>
         </div>

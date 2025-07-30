@@ -1,24 +1,24 @@
 
 import React from 'react';
-import { Check, Search, Database, Users, Zap, Sparkles } from 'lucide-react';
+import { Check, Globe, Search, MousePointer, Share2, BarChart } from 'lucide-react';
 
 const SolutionOverview = () => {
   const features = [
-    { icon: Search, text: "SEO Content & Optimization" },
-    { icon: Database, text: "Google Maps & Social Scraping" },
-    { icon: Users, text: "Multi-Channel Lead Generation" },
-    { icon: Zap, text: "Automated Campaign Deployment" },
-    { icon: Sparkles, text: "Future Tools (Coming Soon)" }
+    { icon: Globe, text: "Website Design & Development" },
+    { icon: Search, text: "Humanised SEO Optimization" },
+    { icon: MousePointer, text: "Targeted Paid Advertising" },
+    { icon: Share2, text: "Social Media Management" },
+    { icon: BarChart, text: "Analytics & Reporting" }
   ];
 
   return (
     <section className="py-12 lg:py-20 relative">
       <div className="container-custom text-center">
         <h2 className="text-h2 text-white mb-4 lg:mb-6">
-          Meet <span className="text-gradient">Sparti</span>
+          Meet <span className="text-gradient">GO SG</span>
         </h2>
         
-        <p className="text-body-large text-muted-foreground mb-8 lg:mb-4">Your Unified Automation Command Center</p>
+        <p className="text-body-large text-muted-foreground mb-8 lg:mb-4">Your Complete Digital Marketing Partner</p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 mb-8 lg:mb-12">
           {features.map((feature, index) => (
@@ -34,11 +34,11 @@ const SolutionOverview = () => {
 
         <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 lg:p-8 rounded-2xl border border-primary/30">
           <h3 className="text-xl lg:text-3xl font-bold text-white mb-4">
-            One platform. One login. Unlimited possibilities.
+            One agency. One team. Unlimited growth potential.
           </h3>
           <p className="text-muted-foreground text-base lg:text-xl max-w-4xl mx-auto">
-            Transform your business operations with the first truly unified automation platform. 
-            Scale from startup to enterprise without changing tools.
+            Transform your business growth with comprehensive digital marketing solutions. 
+            Scale from startup to enterprise with proven strategies and expert support.
           </p>
         </div>
       </div>

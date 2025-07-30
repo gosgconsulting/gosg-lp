@@ -26,48 +26,48 @@ const Hero = () => {
 
         {/* Main headline */}
         <h1 className="text-h1 text-white mb-4 lg:mb-6 leading-tight max-w-5xl mx-auto">
-          Stop Managing{' '}
-          <span className="text-gradient">Multiple AI Tools</span>
+          Grow your business with{' '}
+          <span className="text-gradient">data-driven marketing</span>
           <br className="hidden sm:block" />
-          <span className="block text-3xl lg:text-5xl mt-2">Start Automating Everything</span>
+          <span className="block text-3xl lg:text-5xl mt-2">Digital Marketing Agency</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg lg:text-body-large text-gray-300 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed">
-          GO SG combines SEO automation, data scraping, and lead generation into one powerful platform. 
-          Use your tokens for any task, scale as you grow.
+          We help businesses grow through strategic digital marketing initiatives that drive real results. 
+          From SEO to paid advertising, we deliver measurable outcomes for your business.
         </p>
 
         {/* Trust indicators */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-6 mb-8 lg:mb-10">
           <div className="trust-item">
             <Shield className="w-4 h-4" />
-            <span>99.9% Uptime</span>
+            <span>Proven Results</span>
           </div>
           <div className="trust-item">
             <CheckCircle className="w-4 h-4" />
-            <span>SOC2 Compliant</span>
+            <span>Expert Team</span>
           </div>
           <div className="trust-item">
             <CreditCard className="w-4 h-4" />
-            <span>No Credit Card Required</span>
+            <span>Free Consultation</span>
           </div>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 lg:mb-12">
           <Button size="lg" className="btn-mobile-full sm:w-auto">
-            Start Free with 100 Tokens
+            Schedule a Consultation
             <ArrowRight className="w-5 h-5" />
           </Button>
           <Button variant="secondary" size="lg" className="btn-mobile-full sm:w-auto">
-            See How It Works
+            View Our Services
           </Button>
         </div>
 
         {/* Bottom trust text */}
         <div className="text-sm text-muted-foreground">
-          <p>Trusted by businesses worldwide • No credit card required • Cancel anytime</p>
+          <p>Trusted by businesses worldwide • Free consultation • Proven results</p>
         </div>
       </div>
     </section>
