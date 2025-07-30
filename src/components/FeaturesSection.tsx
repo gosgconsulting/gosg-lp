@@ -79,7 +79,7 @@ const FeaturesSection = () => {
                   "Humanised SEO that ranks higher",
                   "Targeted paid advertising campaigns",
                   "Engaging social media content",
-                  "Analytics and performance tracking",
+                  "Centralized analytics & reporting",
                   "Data-driven strategy optimization"
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center text-gray-300">
@@ -111,6 +111,11 @@ const FeaturesSection = () => {
                   <p className="text-white font-medium">Social Media</p>
                   <p className="text-gray-400 text-sm">Engaging content • Community growth</p>
                   <p className="text-primary text-sm">Engagement: +250%</p>
+                </div>
+                <div className="bg-gray-900/50 p-3 rounded-lg">
+                  <p className="text-white font-medium">Analytics & Reporting</p>
+                  <p className="text-gray-400 text-sm">Centralized dashboard • Real-time insights</p>
+                  <p className="text-primary text-sm">Performance tracking: 24/7</p>
                 </div>
               </div>
               <p className="text-gray-300 text-sm mt-4">Comprehensive digital marketing success</p>
