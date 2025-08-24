@@ -554,3 +554,78 @@ Detector facts:
 
 - Any change to `sparti.config.ts` or any file it imports (collections, singletons, fields) triggers the editor to re-read the config and render the updated UI.
 - Adding/removing a field in a schema immediately changes the corresponding form in the editor once saved.
+
+---
+
+# Sparti CMS Admin System
+
+## Routes and Authentication
+
+### Admin Routes
+- `/admin` - Login page (email/password only, no sign-up)
+- `/admin/app` - Post-login CMS layout shell
+
+### Authentication Flow
+1. **Session Check**: On page load, check for valid Supabase session
+2. **Login**: Email/password authentication via Supabase
+3. **Session Persistence**: Sessions persist across browser reloads
+4. **Logout**: Clear session and redirect to login
+
+### Supabase Configuration
+Required environment variables:
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+
+Supabase Dashboard Settings (manual configuration):
+- Enable email/password authentication
+- Disable sign-ups (email signups OFF)
+- No OAuth providers enabled
+- Optional: Configure domain allow-list
+
+### Access Control
+- Sign-ups are disabled in Supabase
+- Admin accounts must be pre-provisioned via Supabase Dashboard
+- Each user will be linked to a specific child/domain (future implementation)
+
+## Post-Login Layout Structure
+
+### Top Bar
+- Sparti brand text
+- Optional environment badge (e.g., "Dev")
+- User menu: avatar/initials, email, "Log out" action
+
+### Sidebar (collapsible on mobile)
+Navigation groups:
+- **Content**: home, posts
+- **Components**: navbar, footer  
+- **Site Settings**: branding, seo
+
+### Main Content Area
+- Default landing: Dashboard with welcome text and quick links
+- Navigation: Clicking sidebar items shows placeholder panels
+- No content editing implemented yet (layout shell only)
+
+## Security Rules
+- No sign-up mechanism exposed
+- Generic error messages for auth failures
+- Supabase handles all session management
+- No manual token storage
+
+## Acceptance Criteria
+- [ ] `/admin` with no session shows login form
+- [ ] Valid credentials create session and redirect to `/admin/app`
+- [ ] `/admin` with active session redirects to `/admin/app`
+- [ ] `/admin/app` without session redirects to `/admin`
+- [ ] Post-login layout displays top bar, sidebar, and dashboard
+- [ ] "Log out" clears session and redirects to `/admin`
+- [ ] No sign-up UI exists anywhere
+- [ ] Sidebar groups and items match specification
+
+## Test Plan (Manual)
+1. Provision test admin account via Supabase Dashboard
+2. Test wrong credentials → generic error, stays on login
+3. Test correct credentials → redirect to `/admin/app`, session persisted
+4. Refresh `/admin/app` → remains authenticated
+5. Click "Log out" → redirect to `/admin`, session cleared
+6. Direct access to `/admin/app` without session → redirected to `/admin`
+7. Confirm no sign-up UI present
