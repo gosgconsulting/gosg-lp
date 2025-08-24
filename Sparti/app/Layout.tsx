@@ -5,20 +5,16 @@ import { MainContent } from './MainContent'
 import '../styles/sparti.css'
 
 export const Layout: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
   const [activeItem, setActiveItem] = useState('dashboard')
 
   return (
     <div className="sparti-app" style={{ minHeight: '100vh', backgroundColor: '#f9f9f9' }}>
       <TopBar 
-        onMenuClick={() => setSidebarOpen(!sidebarOpen)}
-        sidebarOpen={sidebarOpen}
+        activeItem={activeItem}
       />
       
-      <div style={{ display: 'flex' }}>
+      <div className="sparti-layout">
         <Sidebar 
-          isOpen={sidebarOpen}
-          onClose={() => setSidebarOpen(false)}
           activeItem={activeItem}
           onItemClick={setActiveItem}
         />

@@ -5,48 +5,290 @@ interface MainContentProps {
   activeItem: string
 }
 
-const contentMap: Record<string, { title: string; description: string; icon: React.ComponentType<any> }> = {
-  dashboard: {
-    title: 'Dashboard',
-    description: 'Welcome to Sparti CMS',
-    icon: () => null
-  },
-  home: {
-    title: 'Home Page',
-    description: 'Manage your homepage content',
-    icon: () => null
-  },
-  posts: {
-    title: 'Posts',
-    description: 'Create and manage blog posts',
-    icon: () => null
-  },
-  navbar: {
-    title: 'Navigation Bar',
-    description: 'Configure site navigation',
-    icon: () => null
-  },
-  footer: {
-    title: 'Footer',
-    description: 'Manage footer content and links',
-    icon: () => null
-  },
-  branding: {
-    title: 'Branding',
-    description: 'Site branding and visual identity',
-    icon: () => null
-  },
-  seo: {
-    title: 'SEO Settings',
-    description: 'Search engine optimization settings',
-    icon: () => null
-  }
+// Mock data for demonstration
+const mockPosts = [
+  { id: 1, name: 'what-is-astro' },
+  { id: 2, name: 'what-is-keystatic-cms' }
+]
+
+const mockPages = [
+  { id: 1, name: 'Home Page' }
+]
+
+const renderPostsList = () => {
+  return (
+    <div className="sparti-content-list">
+      <div className="sparti-content-list-header">
+        <h3 className="sparti-content-list-title">Name ↑</h3>
+      </div>
+      {mockPosts.map((post) => (
+        <div key={post.id} className="sparti-content-item">
+          <h4 className="sparti-content-item-name">{post.name}</h4>
+          <div className="sparti-content-item-actions">
+            <button className="sparti-btn sparti-btn-secondary">
+              Edit
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const renderPagesList = () => {
+  return (
+    <div className="sparti-content-list">
+      <div className="sparti-content-list-header">
+        <h3 className="sparti-content-list-title">Pages</h3>
+      </div>
+      {mockPages.map((page) => (
+        <div key={page.id} className="sparti-content-item">
+          <h4 className="sparti-content-item-name">{page.name}</h4>
+          <div className="sparti-content-item-actions">
+            <button className="sparti-btn sparti-btn-secondary">
+              Edit
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const renderNavbarForm = () => {
+  return (
+    <div className="sparti-form-container">
+      <div className="sparti-form-section">
+        <h3 className="sparti-form-section-title">Nav Items</h3>
+        <div className="sparti-form-group">
+          <button className="sparti-btn sparti-btn-secondary">Add</button>
+        </div>
+        
+        <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="sparti-content-item" style={{ border: '1px solid #e5e5e5', borderRadius: '6px', padding: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect width="7" height="9" x="3" y="3" rx="1"/>
+                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                <rect width="7" height="9" x="14" y="12" rx="1"/>
+                <rect width="7" height="5" x="3" y="16" rx="1"/>
+              </svg>
+              <span>Home</span>
+            </div>
+            <button className="sparti-btn sparti-btn-ghost sparti-btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div className="sparti-content-item" style={{ border: '1px solid #e5e5e5', borderRadius: '6px', padding: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect width="7" height="9" x="3" y="3" rx="1"/>
+                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                <rect width="7" height="9" x="14" y="12" rx="1"/>
+                <rect width="7" height="5" x="3" y="16" rx="1"/>
+              </svg>
+              <span>Posts</span>
+            </div>
+            <button className="sparti-btn sparti-btn-ghost sparti-btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div className="sparti-content-item" style={{ border: '1px solid #e5e5e5', borderRadius: '6px', padding: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect width="7" height="9" x="3" y="3" rx="1"/>
+                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                <rect width="7" height="9" x="14" y="12" rx="1"/>
+                <rect width="7" height="5" x="3" y="16" rx="1"/>
+              </svg>
+              <span>Dropdown Menu</span>
+            </div>
+            <button className="sparti-btn sparti-btn-ghost sparti-btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div className="sparti-form-section">
+        <h3 className="sparti-form-section-title">Buttons</h3>
+        <div className="sparti-form-group">
+          <button className="sparti-btn sparti-btn-secondary">Add</button>
+        </div>
+        
+        <div style={{ marginTop: '16px' }}>
+          <div className="sparti-content-item" style={{ border: '1px solid #e5e5e5', borderRadius: '6px', padding: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect width="7" height="9" x="3" y="3" rx="1"/>
+                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                <rect width="7" height="9" x="14" y="12" rx="1"/>
+                <rect width="7" height="5" x="3" y="16" rx="1"/>
+              </svg>
+              <span>Admin</span>
+            </div>
+            <button className="sparti-btn sparti-btn-ghost sparti-btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
+        <button className="sparti-btn sparti-btn-primary">Save</button>
+      </div>
+    </div>
+  )
+}
+
+const renderBrandingForm = () => {
+  return (
+    <div className="sparti-form-container">
+      <div className="sparti-form-section">
+        <div className="sparti-form-group">
+          <label className="sparti-label">Site Name</label>
+          <input
+            type="text"
+            className="sparti-input"
+            defaultValue="Astrokeys"
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">Select a theme</label>
+          <p style={{ fontSize: '14px', color: '#666666', margin: '4px 0 8px 0' }}>
+            Themes available from DaisyUI
+          </p>
+          <select className="sparti-select" defaultValue="light">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cupcake">Cupcake</option>
+            <option value="bumblebee">Bumblebee</option>
+          </select>
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">Favicon</label>
+          <p style={{ fontSize: '14px', color: '#666666', margin: '4px 0 8px 0' }}>
+            Favicon for the site
+          </p>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <label className="sparti-file-button">
+              <input type="file" className="sparti-file-input" accept="image/*" />
+              Choose file
+            </label>
+            <button className="sparti-btn sparti-btn-ghost">Remove</button>
+          </div>
+          <div className="sparti-image-preview">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xMDAgNTBMMTIwIDMwSDgwTDEwMCA1MFoiIGZpbGw9IiNEREREREQiLz4KPC9zdmc+" alt="Favicon preview" />
+          </div>
+        </div>
+      </div>
+      
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
+        <button className="sparti-btn sparti-btn-primary">Save</button>
+      </div>
+    </div>
+  )
+}
+
+const renderSEOForm = () => {
+  return (
+    <div className="sparti-form-container">
+      <div className="sparti-form-section">
+        <div className="sparti-form-group">
+          <label className="sparti-label">Title</label>
+          <input
+            type="text"
+            className="sparti-input"
+            defaultValue="Astrokeys"
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">Description</label>
+          <textarea
+            className="sparti-textarea"
+            defaultValue="Astro + Keystatic CMS Starter Template"
+            rows={3}
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">Keywords</label>
+          <input
+            type="text"
+            className="sparti-input"
+            defaultValue="astro, tailwindcss, keystatic"
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">Canonical</label>
+          <input
+            type="text"
+            className="sparti-input"
+          />
+        </div>
+      </div>
+      
+      <div className="sparti-form-section">
+        <h3 className="sparti-form-section-title">Opengraph (Facebook)</h3>
+        <p style={{ fontSize: '14px', color: '#666666', margin: '0 0 16px 0' }}>
+          Opengraph options
+        </p>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">OG Title</label>
+          <input
+            type="text"
+            className="sparti-input"
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">OG Description</label>
+          <textarea
+            className="sparti-textarea"
+            rows={3}
+          />
+        </div>
+        
+        <div className="sparti-form-group">
+          <label className="sparti-label">OG Image</label>
+          <label className="sparti-file-button">
+            <input type="file" className="sparti-file-input" accept="image/*" />
+            Choose file
+          </label>
+        </div>
+      </div>
+      
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
+        <button className="sparti-btn sparti-btn-primary">Save</button>
+      </div>
+    </div>
+  )
 }
 
 export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
-  const content = contentMap[activeItem] || contentMap.dashboard
-  const Icon = content.icon
-
   if (activeItem === 'dashboard') {
     return (
       <main className="sparti-main-content">
@@ -176,22 +418,57 @@ export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
       </main>
     )
   }
+  
+  // Handle specific content types
+  if (activeItem === 'posts') {
+    return (
+      <main className="sparti-main-content">
+        {renderPostsList()}
+      </main>
+    )
+  }
+  
+  if (activeItem === 'home') {
+    return (
+      <main className="sparti-main-content">
+        {renderPagesList()}
+      </main>
+    )
+  }
+  
+  if (activeItem === 'navbar') {
+    return (
+      <main className="sparti-main-content">
+        {renderNavbarForm()}
+      </main>
+    )
+  }
+  
+  if (activeItem === 'branding') {
+    return (
+      <main className="sparti-main-content">
+        {renderBrandingForm()}
+      </main>
+    )
+  }
+  
+  if (activeItem === 'seo') {
+    return (
+      <main className="sparti-main-content">
+        {renderSEOForm()}
+      </main>
+    )
+  }
 
+  // Default fallback for other items
   return (
     <main className="sparti-main-content">
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div className="sparti-dashboard-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-            <h1 className="sparti-dashboard-title">{content.title}</h1>
-          </div>
-          <p className="sparti-dashboard-subtitle">{content.description}</p>
-        </div>
-
         <div className="sparti-card">
           <div className="sparti-card-header">
             <h3 className="sparti-card-title">Coming Soon</h3>
             <p className="sparti-card-description">
-              Content editing for {content.title.toLowerCase()} will be available soon.
+              Content editing for this section will be available soon.
             </p>
           </div>
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
@@ -204,14 +481,14 @@ export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
               </svg>
             </div>
             <p style={{ color: '#666666', marginBottom: '16px' }}>
-                The {content.title.toLowerCase()} editor is currently under development.
+                This editor is currently under development.
               </p>
             <button className="sparti-btn sparti-btn-secondary" disabled>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14"/>
                 <path d="M12 5v14"/>
               </svg>
-                Create {content.title}
+                Create Content
             </button>
             </div>
         </div>

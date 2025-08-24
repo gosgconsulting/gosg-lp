@@ -4,14 +4,27 @@ import '../styles/sparti.css'
 import type { User as SupabaseUser } from '@supabase/supabase-js'
 
 interface TopBarProps {
-  onMenuClick: () => void
-  sidebarOpen: boolean
+  activeItem: string
 }
 
-export const TopBar: React.FC<TopBarProps> = ({ onMenuClick, sidebarOpen }) => {
+const getPageTitle = (activeItem: string): string => {
+  const titles: Record<string, string> = {
+    dashboard: 'Dashboard',
+    home: 'Home Page',
+    posts: 'Posts',
+    navbar: 'Main Nav',
+    footer: 'Footer',
+    branding: 'Branding',
+    seo: 'SEO'
+  }
+  return titles[activeItem] || 'Dashboard'
+}
+
+export const TopBar: React.FC<TopBarProps> = ({ activeItem }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [isMasterAccount, setIsMasterAccount] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     const getUser = async () => {
@@ -42,21 +55,12 @@ export const TopBar: React.FC<TopBarProps> = ({ onMenuClick, sidebarOpen }) => {
   }
 
   const isDev = import.meta.env.DEV
+  const showSearch = activeItem === 'posts'
+  const showAddButton = activeItem === 'posts'
 
   return (
     <header className="sparti-topbar">
       <div className="sparti-topbar-left">
-        <button
-          className="sparti-btn sparti-btn-ghost sparti-btn-icon lg:hidden"
-          onClick={onMenuClick}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="4" x2="20" y1="6" y2="6"/>
-            <line x1="4" x2="20" y1="12" y2="12"/>
-            <line x1="4" x2="20" y1="18" y2="18"/>
-          </svg>
-        </button>
-        
         <div className="sparti-topbar-brand">
           <h1 className="sparti-topbar-title">Sparti</h1>
           {isDev && (
@@ -68,6 +72,28 @@ export const TopBar: React.FC<TopBarProps> = ({ onMenuClick, sidebarOpen }) => {
             </span>
           )}
         </div>
+      </div>
+      
+      <div className="sparti-topbar-center">
+        <h2 className="sparti-page-title">{getPageTitle(activeItem)}</h2>
+      </div>
+      
+      <div className="sparti-topbar-actions">
+        {showSearch && (
+          <input
+            type="text"
+            placeholder="Search..."
+            className="sparti-search-input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        )}
+        
+        {showAddButton && (
+          <button className="sparti-btn sparti-btn-primary">
+            Add
+          </button>
+        )}
       </div>
 
       <div className="sparti-user-menu">
