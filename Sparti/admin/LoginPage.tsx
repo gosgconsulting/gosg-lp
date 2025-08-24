@@ -42,7 +42,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
       if (error) {
         setError('Invalid credentials or access not permitted.')
       } else if (data.user) {
-        onLoginSuccess()
+        window.location.href = '/admin'
       }
     } catch (err) {
       setError('Invalid credentials or access not permitted.')

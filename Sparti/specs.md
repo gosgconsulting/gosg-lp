@@ -562,14 +562,14 @@ Detector facts:
 ## Routes and Authentication
 
 ### Admin Routes
-- `/admin` - Login page (email/password only, no sign-up)
-- `/admin/app` - Post-login CMS layout shell
+- `/auth` - Login page (email/password only, no sign-up)
+- `/admin` - Post-login CMS dashboard and layout shell
 
 ### Authentication Flow
 1. **Session Check**: On page load, check for valid Supabase session
 2. **Login**: Email/password authentication via Supabase
 3. **Session Persistence**: Sessions persist across browser reloads
-4. **Logout**: Clear session and redirect to login
+4. **Logout**: Clear session and redirect to `/auth`
 
 ### Supabase Configuration
 Required environment variables:
@@ -612,20 +612,20 @@ Navigation groups:
 - No manual token storage
 
 ## Acceptance Criteria
-- [ ] `/admin` with no session shows login form
-- [ ] Valid credentials create session and redirect to `/admin/app`
-- [ ] `/admin` with active session redirects to `/admin/app`
-- [ ] `/admin/app` without session redirects to `/admin`
+- [ ] `/auth` shows login form
+- [ ] Valid credentials create session and redirect to `/admin`
+- [ ] `/admin` with active session shows dashboard
+- [ ] `/admin` without session redirects to `/auth`
 - [ ] Post-login layout displays top bar, sidebar, and dashboard
-- [ ] "Log out" clears session and redirects to `/admin`
+- [ ] "Log out" clears session and redirects to `/auth`
 - [ ] No sign-up UI exists anywhere
 - [ ] Sidebar groups and items match specification
 
 ## Test Plan (Manual)
 1. Provision test admin account via Supabase Dashboard
-2. Test wrong credentials → generic error, stays on login
-3. Test correct credentials → redirect to `/admin/app`, session persisted
-4. Refresh `/admin/app` → remains authenticated
-5. Click "Log out" → redirect to `/admin`, session cleared
-6. Direct access to `/admin/app` without session → redirected to `/admin`
+2. Test wrong credentials → generic error, stays on `/auth`
+3. Test correct credentials → redirect to `/admin`, session persisted
+4. Refresh `/admin` → remains authenticated
+5. Click "Log out" → redirect to `/auth`, session cleared
+6. Direct access to `/admin` without session → redirected to `/auth`
 7. Confirm no sign-up UI present

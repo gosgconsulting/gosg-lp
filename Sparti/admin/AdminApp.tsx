@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from './supabase'
-import { AuthGuard } from './AuthGuard'
-import { LoginPage } from './LoginPage'
 import { Layout } from '../app/Layout'
 
 export const AdminApp: React.FC = () => {
@@ -13,6 +11,13 @@ export const AdminApp: React.FC = () => {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession()
       setIsAuthenticated(!!session?.user)
+      
+      // If not authenticated, redirect to /auth
+      if (!session?.user) {
+        window.location.href = '/auth'
+        return
+      }
+      
       setLoading(false)
     }
 
@@ -22,6 +27,13 @@ export const AdminApp: React.FC = () => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setIsAuthenticated(!!session?.user)
+        
+        // If logged out, redirect to /auth
+        if (!session?.user) {
+          window.location.href = '/auth'
+          return
+        }
+        
         setLoading(false)
       }
     )
@@ -29,9 +41,6 @@ export const AdminApp: React.FC = () => {
     return () => subscription.unsubscribe()
   }, [])
 
-  const handleLoginSuccess = () => {
-    setIsAuthenticated(true)
-  }
 
   if (loading) {
     return (
@@ -41,9 +50,6 @@ export const AdminApp: React.FC = () => {
     )
   }
 
-  if (!isAuthenticated) {
-    return <LoginPage onLoginSuccess={handleLoginSuccess} />
-  }
 
   return <Layout />
 }
