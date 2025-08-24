@@ -18,8 +18,6 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
     publishedDate: ''
   })
 
-  const [isEditing, setIsEditing] = useState(false)
-
   const handleInputChange = (field: string, value: string) => {
     setPostData(prev => ({
       ...prev,
@@ -76,7 +74,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
   return (
     <div className="sparti-post-editor">
       <div className="sparti-post-editor-content">
-        {/* Rich Text Editor */}
+        {/* Rich Text Editor - Left Side */}
         <div className="sparti-editor-main">
           <div className="sparti-editor-toolbar">
             <select className="sparti-editor-format-select">
@@ -113,9 +111,6 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                   <polyline points="8,6 2,12 8,18"/>
                 </svg>
               </button>
-            </div>
-
-            <div className="sparti-editor-toolbar-group">
               <button className="sparti-editor-btn" title="Text Color">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 20h16"/>
@@ -200,7 +195,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
           </div>
         </div>
 
-        {/* Right Sidebar Form */}
+        {/* Right Sidebar Form - Exact fields from image */}
         <div className="sparti-editor-sidebar">
           <div className="sparti-form-section">
             <div className="sparti-form-group">
@@ -210,7 +205,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                 className="sparti-input"
                 value={postData.title}
                 onChange={(e) => handleInputChange('title', e.target.value)}
-                placeholder="Enter post title"
+                placeholder=""
               />
             </div>
 
@@ -224,7 +219,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                   className="sparti-input"
                   value={postData.slug}
                   onChange={(e) => handleInputChange('slug', e.target.value)}
-                  placeholder="post-slug"
+                  placeholder=""
                 />
                 <button 
                   type="button" 
@@ -266,7 +261,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                 className="sparti-input"
                 value={postData.imageAlt}
                 onChange={(e) => handleInputChange('imageAlt', e.target.value)}
-                placeholder="Alt text for the image"
+                placeholder=""
               />
             </div>
 
@@ -277,7 +272,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                 className="sparti-textarea"
                 value={postData.excerpt}
                 onChange={(e) => handleInputChange('excerpt', e.target.value)}
-                placeholder="Brief description..."
+                placeholder=""
                 rows={4}
               />
             </div>
@@ -289,6 +284,7 @@ export const PostEditor: React.FC<PostEditorProps> = ({ postId, onSave, onCancel
                 className="sparti-input sparti-date-input"
                 value={postData.publishedDate}
                 onChange={(e) => handleInputChange('publishedDate', e.target.value)}
+                placeholder="mm/dd/yyyy"
               />
             </div>
           </div>
