@@ -1,16 +1,5 @@
 import React from 'react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { 
-  Home, 
-  FileText, 
-  Navigation, 
-  Layout, 
-  Settings, 
-  Palette,
-  Search,
-  X
-} from 'lucide-react'
+import '../styles/sparti.css'
 
 interface SidebarProps {
   isOpen: boolean
@@ -23,22 +12,22 @@ const navigationGroups = [
   {
     title: 'Content',
     items: [
-      { id: 'home', label: 'Home', icon: Home },
-      { id: 'posts', label: 'Posts', icon: FileText },
+      { id: 'home', label: 'Home' },
+      { id: 'posts', label: 'Posts' },
     ]
   },
   {
     title: 'Components',
     items: [
-      { id: 'navbar', label: 'Navbar', icon: Navigation },
-      { id: 'footer', label: 'Footer', icon: Layout },
+      { id: 'navbar', label: 'Navbar' },
+      { id: 'footer', label: 'Footer' },
     ]
   },
   {
     title: 'Site Settings',
     items: [
-      { id: 'branding', label: 'Branding', icon: Palette },
-      { id: 'seo', label: 'SEO', icon: Search },
+      { id: 'branding', label: 'Branding' },
+      { id: 'seo', label: 'SEO' },
     ]
   }
 ]
@@ -52,67 +41,60 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Mobile overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          onClick={onClose}
-        />
-      )}
+      {isOpen && <div className="sparti-overlay" onClick={onClose} />}
       
       {/* Sidebar */}
-      <aside className={cn(
-        "fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white border-r border-gray-200 transform transition-transform duration-200 ease-in-out z-50",
-        "lg:relative lg:top-0 lg:h-[calc(100vh-4rem)] lg:translate-x-0",
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      )}>
-        <div className="flex flex-col h-full">
+      <aside className={`sparti-sidebar ${isOpen ? 'open' : ''}`}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           {/* Mobile close button */}
-          <div className="flex items-center justify-between p-4 lg:hidden">
-            <h2 className="text-lg font-semibold">Navigation</h2>
-            <Button variant="ghost" size="icon" onClick={onClose}>
-              <X className="h-5 w-5" />
-            </Button>
+          <div className="sparti-sidebar-header lg:hidden">
+            <h2 className="sparti-sidebar-title">Navigation</h2>
+            <button className="sparti-btn sparti-btn-ghost sparti-btn-icon" onClick={onClose}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18"/>
+                <path d="M6 6l12 12"/>
+              </svg>
+            </button>
           </div>
           
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-4 space-y-6 overflow-y-auto">
+          <nav className="sparti-sidebar-nav">
             {/* Dashboard */}
             <div>
-              <Button
-                variant={activeItem === 'dashboard' ? 'default' : 'ghost'}
-                className="w-full justify-start"
+              <button
+                className={`sparti-nav-item ${activeItem === 'dashboard' ? 'active' : ''}`}
                 onClick={() => {
                   onItemClick('dashboard')
                   onClose()
                 }}
               >
-                <Home className="mr-2 h-4 w-4" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9,22 9,12 15,12 15,22"/>
+                </svg>
                 Dashboard
-              </Button>
+              </button>
             </div>
             
             {/* Navigation Groups */}
             {navigationGroups.map((group) => (
-              <div key={group.title}>
-                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <div key={group.title} className="sparti-nav-group">
+                <h3 className="sparti-nav-group-title">
                   {group.title}
                 </h3>
-                <div className="space-y-1">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   {group.items.map((item) => {
-                    const Icon = item.icon
                     return (
-                      <Button
+                      <button
                         key={item.id}
-                        variant={activeItem === item.id ? 'default' : 'ghost'}
-                        className="w-full justify-start"
+                        className={`sparti-nav-item ${activeItem === item.id ? 'active' : ''}`}
                         onClick={() => {
                           onItemClick(item.id)
                           onClose()
                         }}
                       >
-                        <Icon className="mr-2 h-4 w-4" />
                         {item.label}
-                      </Button>
+                      </button>
                     )
                   })}
                 </div>

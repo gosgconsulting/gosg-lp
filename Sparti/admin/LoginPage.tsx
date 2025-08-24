@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from './supabase'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Sparkles } from 'lucide-react'
+import '../styles/sparti.css'
 
 interface LoginPageProps {
   onLoginSuccess: () => void
@@ -54,72 +49,69 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
   const isFormValid = email.trim() !== '' && password.trim() !== ''
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
-              <Sparkles className="w-7 h-7 text-white" />
-            </div>
-          </div>
-          <CardTitle className="text-2xl font-bold">Sparti CMS</CardTitle>
-          <CardDescription>
+    <div className="sparti-app">
+      <div className="sparti-login-container">
+        <div className="sparti-login-card">
+          <div className="sparti-login-header">
+            <h1 className="sparti-login-title">Sparti CMS</h1>
+            <p className="sparti-login-subtitle">
             Sign in to access the content management system
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+            </p>
+          </div>
+          
           <form onSubmit={handleLogin} className="space-y-4">
             {error && (
-              <Alert variant="destructive">
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
+              <div className="sparti-alert sparti-alert-error">
+                {error}
+              </div>
             )}
             
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
+            <div className="sparti-form-group">
+              <label htmlFor="email" className="sparti-label">Email</label>
+              <input
                 id="email"
                 type="email"
+                className="sparti-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
                 required
                 autoComplete="email"
-                className="w-full"
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
+            <div className="sparti-form-group">
+              <label htmlFor="password" className="sparti-label">Password</label>
+              <input
                 id="password"
                 type="password"
+                className="sparti-input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={loading}
                 required
                 autoComplete="current-password"
-                className="w-full"
               />
             </div>
             
-            <Button
+            <button
               type="submit"
-              className="w-full"
+              className="sparti-btn sparti-btn-primary"
+              style={{ width: '100%' }}
               disabled={loading || !isFormValid}
             >
               {loading ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  <div className="sparti-loading"></div>
                   Signing in...
                 </>
               ) : (
                 'Sign In'
               )}
-            </Button>
+            </button>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   )
 }

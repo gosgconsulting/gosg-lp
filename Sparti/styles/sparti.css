@@ -1,0 +1,552 @@
+/* Sparti CMS - Neutral Black & White Styling */
+
+/* Reset and Base Styles */
+.sparti-app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sparti-app *,
+.sparti-app *::before,
+.sparti-app *::after {
+  box-sizing: inherit;
+}
+
+/* Layout Components */
+.sparti-topbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sparti-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sparti-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sparti-topbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.sparti-topbar-badge {
+  background-color: #f5f5f5;
+  color: #666666;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sparti-sidebar {
+  position: fixed;
+  left: 0;
+  top: 65px;
+  height: calc(100vh - 65px);
+  width: 256px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-in-out;
+  z-index: 40;
+  overflow-y: auto;
+}
+
+.sparti-sidebar.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .sparti-sidebar {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 65px);
+    transform: translateX(0);
+  }
+}
+
+.sparti-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sparti-sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.sparti-sidebar-nav {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.sparti-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sparti-nav-group-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.sparti-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sparti-nav-item:hover {
+  background-color: #f5f5f5;
+}
+
+.sparti-nav-item.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.sparti-main-content {
+  flex: 1;
+  padding: 24px;
+  margin-left: 0;
+  min-height: calc(100vh - 65px);
+}
+
+@media (min-width: 1024px) {
+  .sparti-main-content {
+    margin-left: 256px;
+  }
+}
+
+/* Buttons */
+.sparti-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  min-height: 36px;
+}
+
+.sparti-btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.sparti-btn-primary:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+.sparti-btn-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e5e5e5;
+}
+
+.sparti-btn-secondary:hover {
+  background-color: #f5f5f5;
+  border-color: #d4d4d4;
+}
+
+.sparti-btn-ghost {
+  background-color: transparent;
+  color: #000000;
+  border-color: transparent;
+}
+
+.sparti-btn-ghost:hover {
+  background-color: #f5f5f5;
+}
+
+.sparti-btn-icon {
+  padding: 8px;
+  min-width: 36px;
+}
+
+.sparti-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Forms */
+.sparti-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sparti-label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+}
+
+.sparti-input {
+  padding: 8px 12px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #ffffff;
+  color: #000000;
+  transition: border-color 0.15s ease;
+}
+
+.sparti-input:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.sparti-input:disabled {
+  background-color: #f5f5f5;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* Cards */
+.sparti-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sparti-card-header {
+  margin-bottom: 16px;
+}
+
+.sparti-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.sparti-card-description {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Alerts */
+.sparti-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.sparti-alert-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.sparti-alert-success {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* Loading */
+.sparti-loading {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: sparti-spin 1s linear infinite;
+}
+
+@keyframes sparti-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* User Menu */
+.sparti-user-menu {
+  position: relative;
+}
+
+.sparti-user-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sparti-user-button:hover {
+  background-color: #f5f5f5;
+  border-color: #e5e5e5;
+}
+
+.sparti-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sparti-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sparti-user-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.sparti-user-email {
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.2;
+}
+
+/* Dropdown */
+.sparti-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 200px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+}
+
+.sparti-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sparti-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.sparti-dropdown-item.danger {
+  color: #dc2626;
+}
+
+.sparti-dropdown-separator {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 4px 0;
+}
+
+/* Mobile Overlay */
+.sparti-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+}
+
+@media (min-width: 1024px) {
+  .sparti-overlay {
+    display: none;
+  }
+}
+
+/* Dashboard Specific */
+.sparti-dashboard-header {
+  margin-bottom: 32px;
+}
+
+.sparti-dashboard-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.sparti-dashboard-subtitle {
+  font-size: 16px;
+  color: #666666;
+  margin: 0;
+}
+
+.sparti-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.sparti-stat-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.sparti-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sparti-stat-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  margin: 0;
+}
+
+.sparti-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.sparti-stat-description {
+  font-size: 12px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Login Page */
+.sparti-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 16px;
+}
+
+.sparti-login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sparti-login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sparti-login-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.sparti-login-subtitle {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .sparti-topbar {
+    padding: 12px;
+  }
+  
+  .sparti-main-content {
+    padding: 16px;
+  }
+  
+  .sparti-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sparti-user-info {
+    display: none;
+  }
+}

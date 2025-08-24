@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from './supabase'
 import type { User } from '@supabase/supabase-js'
+import '../styles/sparti.css'
 
 interface AuthGuardProps {
   children: React.ReactNode
@@ -34,8 +35,8 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children, fallback }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      <div className="sparti-app" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9f9f9' }}>
+        <div className="sparti-loading" style={{ width: '32px', height: '32px' }}></div>
       </div>
     )
   }
