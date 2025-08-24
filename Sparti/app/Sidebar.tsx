@@ -10,7 +10,7 @@ const navigationGroups = [
   {
     title: 'Content',
     items: [
-      { id: 'home', label: 'Home Page' },
+      { id: 'home', label: 'Pages' },
       { id: 'posts', label: 'Posts' },
     ]
   },

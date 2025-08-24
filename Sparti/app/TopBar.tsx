@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../admin/supabase'
 import '../styles/sparti.css'
-import type { User as SupabaseUser } from '@supabase/supabase-js'
+
+interface MockUser {
+  id: string
+  email: string
+}
 
 interface TopBarProps {
   activeItem: string
@@ -21,7 +25,7 @@ const getPageTitle = (activeItem: string): string => {
 }
 
 export const TopBar: React.FC<TopBarProps> = ({ activeItem }) => {
-  const [user, setUser] = useState<SupabaseUser | null>(null)
+  const [user, setUser] = useState<MockUser | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [isMasterAccount, setIsMasterAccount] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -54,7 +58,7 @@ export const TopBar: React.FC<TopBarProps> = ({ activeItem }) => {
     return email.split('@')[0].slice(0, 2).toUpperCase()
   }
 
-  const isDev = import.meta.env.DEV
+  const isDev = false // Removed Vite env check
   const showSearch = activeItem === 'posts'
   const showAddButton = activeItem === 'posts'
 

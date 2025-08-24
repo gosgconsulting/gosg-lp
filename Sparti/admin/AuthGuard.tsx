@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from './supabase'
-import type { User } from '@supabase/supabase-js'
 import '../styles/sparti.css'
+
+interface MockUser {
+  id: string
+  email: string
+}
 
 interface AuthGuardProps {
   children: React.ReactNode
@@ -9,7 +13,7 @@ interface AuthGuardProps {
 }
 
 export const AuthGuard: React.FC<AuthGuardProps> = ({ children, fallback }) => {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<MockUser | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

@@ -322,8 +322,10 @@ export const MainContent: React.FC<MainContentProps> = ({ activeItem, triggerAdd
   }
 
   const handleEditPage = (pageId: string) => {
-    // Handle page editing - for now just log
-    console.log('Edit page:', pageId)
+    // Navigate to the actual page with visual editor
+    if (pageId === 'home') {
+      window.open('/?sparti=edit', '_blank')
+    }
   }
 
   const handleSavePost = (postData: any) => {

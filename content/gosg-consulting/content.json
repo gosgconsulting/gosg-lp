@@ -1,0 +1,57 @@
+{
+  "brandName": "GO SG",
+  "heroHeadline": "Grow your business with",
+  "heroHighlight": "data-driven marketing",
+  "heroSubtitle": "Digital Marketing Agency",
+  "heroDescription": "We help businesses grow through strategic digital marketing initiatives that drive real results. From SEO to paid advertising, we deliver measurable outcomes for your business.",
+  "trustIndicator1": "Proven Results",
+  "trustIndicator2": "Expert Team",
+  "trustIndicator3": "Free Consultation",
+  "primaryCTA": "Schedule a Consultation",
+  "secondaryCTA": "View Our Services",
+  "trustText": "Trusted by businesses worldwide • Free consultation • Proven results",
+  
+  "problemSectionTitle": "Struggling with",
+  "problemSectionHighlight": "Marketing Challenges",
+  "problemSectionDescription": "You're juggling multiple subscriptions, learning different interfaces, and struggling with integrations that break.",
+  "problem1": "Declining website traffic",
+  "problem2": "Time-consuming marketing tasks",
+  "problem3": "Poor conversion rates",
+  "problem4": "Limited marketing expertise",
+  "problem5": "Low return on ad spend",
+  "problemCTATitle": "What if one agency could solve it all?",
+  "problemCTADescription": "Stop struggling with ineffective marketing. Start growing with proven strategies.",
+  
+  "featuresSectionTitle": "Our Comprehensive Marketing Solutions",
+  "featuresSectionDescription": "We provide end-to-end digital marketing services designed to accelerate your business growth and maximize your ROI.",
+  
+  "feature1Title": "SEO Optimization",
+  "feature1Description": "Boost your organic visibility and drive qualified traffic to your website with our proven SEO strategies.",
+  "feature1Benefit1": "Keyword research & optimization",
+  "feature1Benefit2": "Technical SEO audits",
+  "feature1Benefit3": "Content optimization",
+  
+  "feature2Title": "Paid Advertising",
+  "feature2Description": "Maximize your advertising ROI with targeted campaigns across Google Ads, Facebook, and other platforms.",
+  "feature2Benefit1": "Campaign strategy & setup",
+  "feature2Benefit2": "Ad creative development",
+  "feature2Benefit3": "Performance optimization",
+  
+  "feature3Title": "Social Media Marketing",
+  "feature3Description": "Build brand awareness and engage your audience with strategic social media campaigns.",
+  "feature3Benefit1": "Content creation & scheduling",
+  "feature3Benefit2": "Community management",
+  "feature3Benefit3": "Social media advertising",
+  
+  "feature4Title": "Analytics & Reporting",
+  "feature4Description": "Make data-driven decisions with comprehensive analytics and detailed performance reports.",
+  "feature4Benefit1": "Custom dashboard setup",
+  "feature4Benefit2": "Monthly performance reports",
+  "feature4Benefit3": "ROI tracking & analysis",
+  
+  "feature5Title": "Marketing Strategy",
+  "feature5Description": "Develop a comprehensive marketing strategy tailored to your business goals and target audience.",
+  "feature5Benefit1": "Market research & analysis",
+  "feature5Benefit2": "Competitor analysis",
+  "feature5Benefit3": "Growth roadmap development"
+}
