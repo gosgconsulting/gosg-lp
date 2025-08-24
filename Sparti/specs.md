@@ -610,6 +610,8 @@ Navigation groups:
 - Generic error messages for auth failures
 - Supabase handles all session management
 - No manual token storage
+- **Master Account Exception**: `contact@gosgconsulting.com` has universal access to all sites/tenants
+- Master account bypasses tenant-specific restrictions (future implementation)
 
 ## Acceptance Criteria
 - [ ] `/auth` shows login form
@@ -620,12 +622,15 @@ Navigation groups:
 - [ ] "Log out" clears session and redirects to `/auth`
 - [ ] No sign-up UI exists anywhere
 - [ ] Sidebar groups and items match specification
+- [ ] Master account `contact@gosgconsulting.com` can authenticate and access system
 
 ## Test Plan (Manual)
 1. Provision test admin account via Supabase Dashboard
+2. **Master Account**: Ensure `contact@gosgconsulting.com` with password `Gosg888!` is provisioned
 2. Test wrong credentials → generic error, stays on `/auth`
 3. Test correct credentials → redirect to `/admin`, session persisted
 4. Refresh `/admin` → remains authenticated
 5. Click "Log out" → redirect to `/auth`, session cleared
 6. Direct access to `/admin` without session → redirected to `/auth`
 7. Confirm no sign-up UI present
+8. Test master account login and verify universal access indication

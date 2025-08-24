@@ -11,6 +11,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [isMasterAccount, setIsMasterAccount] = useState(false)
 
   // Check if user is already authenticated
   useEffect(() => {
@@ -27,6 +28,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
     e.preventDefault()
     setLoading(true)
     setError('')
+    setIsMasterAccount(false)
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -37,6 +39,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
       if (error) {
         setError('Invalid credentials or access not permitted.')
       } else if (data.user) {
+        // Check if this is the master account
+        if (data.user.email === 'contact@gosgconsulting.com') {
+          setIsMasterAccount(true)
+          // Store master account flag in session storage for the app to use
+          sessionStorage.setItem('sparti_master_account', 'true')
+        }
         window.location.href = '/admin'
       }
     } catch (err) {

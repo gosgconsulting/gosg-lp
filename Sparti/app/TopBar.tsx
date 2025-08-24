@@ -11,16 +11,28 @@ interface TopBarProps {
 export const TopBar: React.FC<TopBarProps> = ({ onMenuClick, sidebarOpen }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [isMasterAccount, setIsMasterAccount] = useState(false)
 
   useEffect(() => {
     const getUser = async () => {
       const { data: { user } } = await supabase.auth.getUser()
       setUser(user)
+      
+      // Check if this is the master account
+      if (user?.email === 'contact@gosgconsulting.com') {
+        setIsMasterAccount(true)
+        sessionStorage.setItem('sparti_master_account', 'true')
+      } else {
+        setIsMasterAccount(false)
+        sessionStorage.removeItem('sparti_master_account')
+      }
     }
     getUser()
   }, [])
 
   const handleLogout = async () => {
+    // Clear master account flag on logout
+    sessionStorage.removeItem('sparti_master_account')
     await supabase.auth.signOut()
     // The auth state change will be handled by the parent component
   }
@@ -49,6 +61,11 @@ export const TopBar: React.FC<TopBarProps> = ({ onMenuClick, sidebarOpen }) => {
           <h1 className="sparti-topbar-title">Sparti</h1>
           {isDev && (
             <span className="sparti-topbar-badge">Dev</span>
+          )}
+          {isMasterAccount && (
+            <span className="sparti-topbar-badge" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+              Master
+            </span>
           )}
         </div>
       </div>
