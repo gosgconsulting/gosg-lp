@@ -1,8 +1,15 @@
 import React from 'react'
+import { PostEditor } from './PostEditor'
 import '../styles/sparti.css'
 
 interface MainContentProps {
   activeItem: string
+  triggerAddPost?: number
+}
+
+interface MainContentState {
+  editingPost: string | null
+  creatingPost: boolean
 }
 
 // Mock data for demonstration
@@ -15,7 +22,10 @@ const mockPages = [
   { id: 1, name: 'Home Page' }
 ]
 
-const renderPostsList = () => {
+const renderPostsList = (
+  onEditPost: (postId: string) => void,
+  onCreatePost: () => void
+) => {
   return (
     <div className="sparti-content-list">
       <div className="sparti-content-list-header">
@@ -25,7 +35,7 @@ const renderPostsList = () => {
         <div key={post.id} className="sparti-content-item">
           <h4 className="sparti-content-item-name">{post.name}</h4>
           <div className="sparti-content-item-actions">
-            <button className="sparti-btn sparti-btn-secondary">
+            <button className="sparti-btn sparti-btn-secondary" onClick={() => onEditPost(post.name)}>
               Edit
             </button>
           </div>
@@ -35,7 +45,9 @@ const renderPostsList = () => {
   )
 }
 
-const renderPagesList = () => {
+const renderPagesList = (
+  onEditPage: (pageId: string) => void
+) => {
   return (
     <div className="sparti-content-list">
       <div className="sparti-content-list-header">
@@ -45,7 +57,7 @@ const renderPagesList = () => {
         <div key={page.id} className="sparti-content-item">
           <h4 className="sparti-content-item-name">{page.name}</h4>
           <div className="sparti-content-item-actions">
-            <button className="sparti-btn sparti-btn-secondary">
+            <button className="sparti-btn sparti-btn-secondary" onClick={() => onEditPage('home')}>
               Edit
             </button>
           </div>
@@ -288,7 +300,41 @@ const renderSEOForm = () => {
   )
 }
 
-export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
+export const MainContent: React.FC<MainContentProps> = ({ activeItem, triggerAddPost }) => {
+  const [state, setState] = React.useState<MainContentState>({
+    editingPost: null,
+    creatingPost: false
+  })
+
+  // Handle Add button click from TopBar
+  React.useEffect(() => {
+    if (triggerAddPost && triggerAddPost > 0 && activeItem === 'posts') {
+      handleCreatePost()
+    }
+  }, [triggerAddPost, activeItem])
+
+  const handleEditPost = (postId: string) => {
+    setState({ editingPost: postId, creatingPost: false })
+  }
+
+  const handleCreatePost = () => {
+    setState({ editingPost: null, creatingPost: true })
+  }
+
+  const handleEditPage = (pageId: string) => {
+    // Handle page editing - for now just log
+    console.log('Edit page:', pageId)
+  }
+
+  const handleSavePost = (postData: any) => {
+    console.log('Save post:', postData)
+    setState({ editingPost: null, creatingPost: false })
+  }
+
+  const handleCancelEdit = () => {
+    setState({ editingPost: null, creatingPost: false })
+  }
+
   if (activeItem === 'dashboard') {
     return (
       <main className="sparti-main-content">
@@ -421,9 +467,19 @@ export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
   
   // Handle specific content types
   if (activeItem === 'posts') {
+    if (state.editingPost || state.creatingPost) {
+      return (
+        <PostEditor
+          postId={state.editingPost || undefined}
+          onSave={handleSavePost}
+          onCancel={handleCancelEdit}
+        />
+      )
+    }
+    
     return (
       <main className="sparti-main-content">
-        {renderPostsList()}
+        {renderPostsList(handleEditPost, handleCreatePost)}
       </main>
     )
   }
@@ -431,7 +487,7 @@ export const MainContent: React.FC<MainContentProps> = ({ activeItem }) => {
   if (activeItem === 'home') {
     return (
       <main className="sparti-main-content">
-        {renderPagesList()}
+        {renderPagesList(handleEditPage)}
       </main>
     )
   }

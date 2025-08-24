@@ -90,7 +90,14 @@ export const TopBar: React.FC<TopBarProps> = ({ activeItem }) => {
         )}
         
         {showAddButton && (
-          <button className="sparti-btn sparti-btn-primary">
+          <button 
+            className="sparti-btn sparti-btn-primary"
+            onClick={() => {
+              // This will be handled by the parent component
+              const event = new CustomEvent('sparti-add-post')
+              window.dispatchEvent(event)
+            }}
+          >
             Add
           </button>
         )}
