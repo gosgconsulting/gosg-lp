@@ -37,7 +37,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
       })
 
       if (error) {
-        setError('Invalid credentials or access not permitted.')
+        if (error.message?.includes('Invalid login credentials')) {
+          setError('Invalid email or password. Please check your credentials.')
+        } else {
+          setError('Authentication failed. Please try again.')
+        }
+        console.error('Supabase auth error:', error)
       } else if (data.user) {
         // Check if this is the master account
         if (data.user.email === 'contact@gosgconsulting.com') {
