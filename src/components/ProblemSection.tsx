@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { XCircle, TrendingDown, Clock, Target, AlertCircle } from 'lucide-react';
 

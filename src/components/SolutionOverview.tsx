@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Globe, Search, MousePointer, Share2, BarChart } from 'lucide-react';
 
